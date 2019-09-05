@@ -1,0 +1,279 @@
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-7">
+                <h5>Listado de Alumnos</h5>
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" placeholder="Buscar..." id="txtBusqueda">
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive" id="contenedorCenso">
+            <table class="table table-striped" id="tblListado">
+                <thead>
+                    <tr>
+                        <td>Codigo</td>
+                        <td>Apellidos</td>
+                        <td>Nombres</td>
+                        <td>Sexo</td>
+                        <td>FechaNacimiento</td>
+                        <td>Edad</td>
+                        <td>Encargado/a</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody id="tblAlumnos">
+                    
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Opciones Pedido -->
+<div class="modal fade" id="ModalNuevoAlumno" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title">Nuevo Alumno</label>
+            </div>
+
+            <div class="modal-body">
+                <div class="form">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Código:</label>
+                                <input id="txtCodigo" class="form-control" type="text" placeholder="Código del alumno...">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Fecha Nacimiento:</label>
+                                <input id="txtNacimiento" class="form-control" type="date" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Nombres:</label>
+                                <input id="txtNombres" class="form-control" type="text" placeholder="Nombres del alumno...">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Apellidos:</label>
+                                <input id="txtApellidos" class="form-control" type="text" placeholder="Apellidos del alumno...">
+                            </div>
+                        </div>
+                    </div>
+   
+                    <div class="form-group">
+                        <label>Dirección:</label>
+                        <input id="txtDireccion" class="form-control" type="text" placeholder="Residencia del alumno...">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-lx-4 col-sm-12">
+                            <div class="form-group">
+                                <label>Sexo:</label>
+                                <select id="cmbSexo" class="form-control">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-lx-8 col-sm-12">
+                            <div class="form-group">
+                                <label>Encargado/a:</label>
+                                <input id="txtEncargado" class="form-control" type="text" placeholder="Responsable del alumno...">
+                            </div>               
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Nombre de la Madre:</label>
+                                <input id="txtMadre" class="form-control" type="text" placeholder="Madre del Alumno...">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Nombre del Padre:</label>
+                                <input id="txtPadre" class="form-control" type="text" placeholder="Padre del Alumno...">
+                            </div>
+                        </div>
+                    </div>              
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Teléfono Casa:</label>
+                                <input id="txtTelCasa" class="form-control" type="number" placeholder="Teléfono de casa...">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Teléfono Celular:</label>
+                                <input id="txtTelefono" class="form-control" type="number" placeholder="Teléfono celular...">
+                            </div>              
+                        </div>
+                    </div>
+
+                        
+                    <div class="form-group">
+                        <label>Observaciones:</label>
+                        <input id="txtObs" class="form-control" type="text" placeholder="">
+                    </div>
+
+  
+                    <div class="form-group">
+                        <button id="btnCancelar" class="btn btn-default btn-lg btn-round" data-dismiss="modal">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                            Cancelar
+                        </button>
+                        <button id="btnGuardar" class="btn btn-primary btn-lg btn-round">
+                            <i class="now-ui-icons ui-1_check"></i> 
+                            Aceptar
+                        </button>
+                    </div>
+
+                </div>
+              
+
+            </div>
+     
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalDetalleAlumno" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-default">
+                    <label class="modal-title text-white">Detalles del Alumno</label>
+                    <br>
+                </div>
+    
+                <div class="modal-body">
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Código:</label>
+                                    <input id="txtCodigoData" class="form-control" type="text" placeholder="Código del alumno...">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Fecha Nacimiento:</label>
+                                    <input id="txtNacimientoData" class="form-control" type="date" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Nombres:</label>
+                                    <input id="txtNombresData" class="form-control" type="text" placeholder="Nombres del alumno...">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Apellidos:</label>
+                                    <input id="txtApellidosData" class="form-control" type="text" placeholder="Apellidos del alumno...">
+                                </div>
+                            </div>
+                        </div>
+       
+                        <div class="form-group">
+                            <label>Dirección:</label>
+                            <input id="txtDireccionData" class="form-control" type="text" placeholder="Residencia del alumno...">
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-lx-4 col-sm-12">
+                                <div class="form-group">
+                                    <label>Sexo:</label>
+                                    <select id="cmbSexoData" class="form-control">
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-lx-8 col-sm-12">
+                                <div class="form-group">
+                                    <label>Encargado/a:</label>
+                                    <input id="txtEncargadoData" class="form-control" type="text" placeholder="Responsable del alumno...">
+                                </div>               
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Nombre de la Madre:</label>
+                                    <input id="txtMadreData" class="form-control" type="text" placeholder="Madre del Alumno...">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Nombre del Padre:</label>
+                                    <input id="txtPadreData" class="form-control" type="text" placeholder="Padre del Alumno...">
+                                </div>
+                            </div>
+                        </div>              
+    
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Teléfono Casa:</label>
+                                    <input id="txtTelCasaData" class="form-control" type="number" placeholder="Teléfono de casa...">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-lx-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Teléfono Celular:</label>
+                                    <input id="txtTelefonoData" class="form-control" type="number" placeholder="Teléfono celular...">
+                                </div>              
+                            </div>
+                        </div>
+    
+                            
+                        <div class="form-group">
+                            <label>Observaciones:</label>
+                            <input id="txtObsData" class="form-control" type="text" placeholder="">
+                        </div>
+    
+      
+                        <div class="form-group">
+                            <br>
+                            <button class="btn btn-success btn-lg btn-round form-control"  data-dismiss="modal">
+                                <i class="now-ui-icons ui-1_check"></i> 
+                                ACEPTAR
+                            </button>
+                        </div>
+    
+                    </div>
+                  
+    
+                </div>
+         
+            </div>
+        </div>
+    </div>
+
+<!-- botón nuevo -->
+<div id="fixed-btn2">
+    <button class="btn btn-success btn-circle btn-xl" id="btnNuevoAlumno" data-toggle="modal" data-target="#Modal">+</button>
+</div>
