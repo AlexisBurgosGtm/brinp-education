@@ -1,0 +1,123 @@
+<div class="row">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <label>Seleccione una Materia</label>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <select class="form-control" id="cmbMaterias">
+                        <option value="MATEMATICAS">MATEMATICAS</option>
+                        <option value="LENGUAJE">LENGUAJE</option>
+                    </select>
+                </div>
+            </div>
+            
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Clave</td>
+                            <td>Código</td>
+                            <td>Apellidos</td>
+                            <td>Nombres</td>
+                            <td>Zona</td>
+                            <td>Exámen</td>
+                            <td>Total</td>
+                            <td>Zona</td>
+                            <td>Exámen</td>
+                            <td>Total</td>
+                            <td>Zona</td>
+                            <td>Exámen</td>
+                            <td>Total</td>
+                            <td>Zona</td>
+                            <td>Exámen</td>
+                            <td>Total</td>
+                            <td>Promedio</td>
+                            <td>Resultado</td>
+                            <td></td>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                            <tr>
+                                    <td>1</td>
+                                    <td>123</td>
+                                    <td>Burgos Carrillo</td>
+                                    <td>Alexis</td>
+                                    <td>10</td>
+                                    <td>15</td>
+                                    <td>25</td>
+                                    <td>5</td>
+                                    <td>7</td>
+                                    <td>12</td>
+                                    <td>15</td>
+                                    <td>9</td>
+                                    <td>24</td>
+                                    <td>10</td>
+                                    <td>15</td>
+                                    <td>25</td>
+                                    <td>60</td>
+                                    <td>80</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-circle btn-warning text-white"  data-toggle="modal" data-target="#ModalAgregarNota">
+                                            +
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                        <td>2</td>
+                                        <td>123</td>
+                                        <td>Burgos Carrillo</td>
+                                        <td>Alexis</td>
+                                        <td>10</td>
+                                        <td>15</td>
+                                        <td>25</td>
+                                        <td>5</td>
+                                        <td>7</td>
+                                        <td>12</td>
+                                        <td>15</td>
+                                        <td>9</td>
+                                        <td>24</td>
+                                        <td>10</td>
+                                        <td>15</td>
+                                        <td>25</td>
+                                        <td>60</td>
+                                        <td>80</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-circle btn-warning text-white" data-toggle="modal" data-target="#ModalAgregarNota">
+                                                +
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="ModalAgregarNota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <label class="modal-title">Agregar Nota</label>
+                </div>
+    
+                <div class="modal-body">
+                    <h2>Acá agregarán las notas del alumno seleccionado</h2>
+                    <h2>La idea es que cuando cambie el selector de las materias</h2>
+                    <h2>cambien las notas y asi se pueda generar el cuadro sin tanta cosa</h2>
+                </div>
+         
+            </div>
+        </div>
+    </div>
+    

@@ -3,6 +3,7 @@ var app = express();
 var router = express.Router();
 var bodyParser = require('body-parser');
 var routerAlumnos = require('./router/routerAlumnos');
+var routerMaestros = require('./router/routerMaestros');
 
 const PORT = process.env.PORT || 333;
 
@@ -37,6 +38,9 @@ app.get("/",function(req,res){
 
 //Router de los alumnos
 app.use('/alumnos', routerAlumnos);
+//Router de los Maestros
+app.use('/maestros', routerMaestros);
+
 
 app.use("/",router);
 

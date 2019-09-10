@@ -34,7 +34,7 @@ function Inicializar(){
 
     //BUSQUEDA
     document.getElementById('txtBusqueda').addEventListener('keyup',()=>{
-        funciones.crearBusquedaTabla('tblListado',document.getElementById('txtBusqueda').value);
+        funciones.FiltrarTabla('tblListado','txtBusqueda');
     })
 
     //CARGA EL GRID O LISTADO DE PRODUCTOS
@@ -91,35 +91,40 @@ async function fcnGuardar(codigo,fechanac,nombres,apellidos,direccion,sexo,encar
       )    
 };
 
-async function fcnEliminar(id){
-    var data =JSON.stringify({
-        token:TOKEN,
-        id:id
-    });
-
-    var peticion = new Request('/alumnos/eliminar', {
-        method: 'DELETE',
-        headers: new Headers({
-           'Content-Type': 'application/json'
-        }),
-        body: data
-      });
-
-      await fetch(peticion)
-      
-      .then(async function(res) {
-        console.log('Estado: ', res.status);
-        if (res.status==200)
-        {
-            funciones.Aviso('Alumno ELIMINADO exitosamente!!');
-            await fcnCargarGrid('tblAlumnos');
-        }
-      })
-      .catch(
-          ()=>{
-            funciones.AvisoError('No se pudo ELIMINAR el Alumno');
-          }
-      )     
+async function fcnDeleteAlumno(id){
+    funciones.Confirmacion('¿Está seguro que desea Eliminar este Alumno?')
+        .then(async(value)=>{
+            if(value==true){
+                var data =JSON.stringify({
+                    token:TOKEN,
+                    id:id
+                });
+            
+                var peticion = new Request('/alumnos/eliminar', {
+                    method: 'DELETE',
+                    headers: new Headers({
+                       'Content-Type': 'application/json'
+                    }),
+                    body: data
+                  });
+            
+                  await fetch(peticion)
+                  
+                  .then(async function(res) {
+                    console.log('Estado: ', res.status);
+                    if (res.status==200)
+                    {
+                        funciones.Aviso('Alumno ELIMINADO exitosamente!!');
+                        await fcnCargarGrid('tblAlumnos');
+                    }
+                  })
+                  .catch(
+                      ()=>{
+                        funciones.AvisoError('No se pudo ELIMINAR el Alumno');
+                      }
+                  )     
+            }
+        })
 }
 
 async function fcnCargarDetalle(codigo,apellidos,nombres,direccion,sexo,fechanac,encargado,padre,madre,telcasa,telefono,obs){
@@ -147,22 +152,27 @@ async function fcnCargarGrid(idContenedor){
         const json = await response.json();      
          
         let tblBody = json.recordset.map((rows)=>{
-       
+       let fn = new Date() - new Date(rows.FECHANACIMIENTO)
+
         return `<tr id=${rows.ID}>
                     <td>${rows.CODIGO}</td>
                     <td>${rows.APELLIDOS}</td>
                     <td>${rows.NOMBRES}</td>
                     <td>${rows.SEXO}</td>
-                    <td>${rows.FECHANACIMIENTO}</td>
+                    <td>${fn.toString()}</td>
                     <td>0</td>
                     <td>
                         ${rows.ENCARGADO}
                         <br>
-                        <small>${rows.TELCASA} // ${rows.TELCELULAR}</small>
+                        <small>Tels : ${rows.TELCASA} // ${rows.TELCELULAR}</small>
                     </td>
                     <td>
                         <button class="btn btn-md btn-icon btn-warning btn-circle"  data-toggle="modal" data-target="#ModalDetalleAlumno"
                          onclick="fcnCargarDetalle('${rows.CODIGO}','${rows.APELLIDOS}','${rows.NOMBRES}','${rows.DIRECCION}','${rows.SEXO}','${rows.FECHANACIMIENTO}','${rows.ENCARGADO}','${rows.PADRE}','${rows.MADRE}',${rows.TELCASA},${rows.TELCELULAR},'${rows.OBS}');">+
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-md btn-icon btn-danger btn-circle" onclick="fcnDeleteAlumno('${rows.ID}');">x
                         </button>
                     </td>
                 <td>
@@ -194,3 +204,4 @@ function fcnLimpiarDatos(){
     document.getElementById('txtTelefono').value = '';
     document.getElementById('txtObs').value = 'SN';      
 }
+

@@ -1,7 +1,7 @@
 USE [DB_A45479_EXPRESS]
 GO
 
-/****** Object:  Table [dbo].[EDUCATION_ALUMNOS]    Script Date: 5/09/2019 09:02:28 ******/
+/****** Object:  Table [dbo].[EDUCATION_ALUMNOS]    Script Date: 9/09/2019 10:51:45 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -29,6 +29,7 @@ CREATE TABLE [dbo].[EDUCATION_ALUMNOS](
 	[TELCASA] [numeric](8, 0) NULL,
 	[TELCELULAR] [numeric](8, 0) NULL,
 	[OBS] [varchar](255) NULL,
+	[CLAVE] [varchar](50) NULL,
  CONSTRAINT [PK_EDUCATION_ALUMNOS] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
